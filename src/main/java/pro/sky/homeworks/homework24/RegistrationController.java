@@ -17,7 +17,7 @@ public class RegistrationController {
     }
 
     @GetMapping
-    public String hello() {
+    public String greetings() {
         return registrationUtils.hello();
     }
 
@@ -41,9 +41,7 @@ public class RegistrationController {
             } else {
                 return true;
             }
-        } catch (WrongLoginException e) {
-            return false;
-        } catch (WrongPasswordException e) {
+        } catch (WrongLoginException | WrongPasswordException e) {
             return false;
         }
     }
